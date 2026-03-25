@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>MathMatters – Free Interactive Math Tools for Educators</title>
+    <meta name="description" content="A free, open clearinghouse of interactive browser-based tools for teaching Calculus, Linear Algebra, Precalculus, Trigonometry, and more. Built by educators, for educators." />
+    <meta name="author" content="Moez Ben-Azzouz" />
+    <meta property="og:title" content="MathMatters – Free Interactive Math Tools for Educators" />
+    <meta property="og:description" content="Free browser-based interactive tools for teaching Calculus, Linear Algebra, Precalculus, and more." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://math-matters.net" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <script>
+      // Restore route after GitHub Pages 404.html redirect
+      (function () {
+        var p = window.location.search.slice(1).split("&").find(function (s) {
+          return s.startsWith("p=/") || s === "p=";
+        });
+        if (p) {
+          var path = p.slice(2).replace(/~and~/g, "&");
+          var remaining = window.location.search
+            .slice(1)
+            .split("&")
+            .filter(function (s) {
+              return !s.startsWith("p=") && !s.startsWith("q=");
+            });
+          var q = window.location.search
+            .slice(1)
+            .split("&")
+            .find(function (s) {
+              return s.startsWith("q=");
+            });
+          history.replaceState(
+            null,
+            null,
+            window.location.pathname +
+              path +
+              (remaining.length ? "?" + remaining.join("&") : "") +
+              (q ? (remaining.length ? "&" : "?") + q.slice(2).replace(/~and~/g, "&") : "") +
+              window.location.hash
+          );
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/MathMatters/assets/index-j8H08D1Y.js"></script>
+    <link rel="stylesheet" crossorigin href="/MathMatters/assets/index-Ch80AELy.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
