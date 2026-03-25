@@ -7,29 +7,18 @@
     // GitHub Pages SPA redirect
     // When GitHub serves this 404 page, encode the requested path as ?p=
     // and redirect to index.html so the React app can handle routing.
-    // segmentCount = 1 because the repo lives at /MathMatters/ (one segment).
-    var segmentCount = 1;
+    // segmentCount = 0 because the site is served from the root domain
+    // math-matters.net (no sub-path prefix).
+    var segmentCount = 0;
     var l = window.location;
-
-    // If visiting via custom domain (math-matters.net), redirect to root
-    if (l.hostname !== "pyaim.github.io") {
-      l.replace(
-        l.protocol + "//" + l.hostname + (l.port ? ":" + l.port : "") +
-        "/?p=" + l.pathname.slice(1).replace(/&/g, "~and~") +
-        (l.search ? "&q=" + l.search.slice(1).replace(/&/g, "~and~") : "") +
-        l.hash
-      );
-    } else {
-      // On GitHub Pages sub-path, preserve the /MathMatters/ prefix
-      l.replace(
-        l.protocol + "//" + l.hostname + (l.port ? ":" + l.port : "") +
-        l.pathname.split("/").slice(0, 1 + segmentCount).join("/") +
-        "/?p=/" +
-        l.pathname.slice(1).split("/").slice(segmentCount).join("/").replace(/&/g, "~and~") +
-        (l.search ? "&q=" + l.search.slice(1).replace(/&/g, "~and~") : "") +
-        l.hash
-      );
-    }
+    l.replace(
+      l.protocol + "//" + l.hostname + (l.port ? ":" + l.port : "") +
+      l.pathname.split("/").slice(0, 1 + segmentCount).join("/") +
+      "/?p=/" +
+      l.pathname.slice(1).split("/").slice(segmentCount).join("/").replace(/&/g, "~and~") +
+      (l.search ? "&q=" + l.search.slice(1).replace(/&/g, "~and~") : "") +
+      l.hash
+    );
   </script>
 </head>
 <body></body>
